@@ -6,7 +6,7 @@ let rows = 10;
 let font;
 
 function preload() {
-  font = loadFont("./assets/InputMonoCondensed-Light.ttf");
+  font = loadFont("./assets/STXINGKA.TTF");
 }
 
 //
@@ -22,13 +22,13 @@ function setup() {
 //
 
 function draw() {
-  background("blue");
+  background("YellowGreen");
   orbitControl();
 
   let angle = 360 / columns;
   let diameter = textSize();
 
-  fill("white");
+  fill("black");
 
   rotateY(-frameCount);
   for (let i = 0; i < columns; i++) {
@@ -40,7 +40,7 @@ function draw() {
       const m = map(a, -1, 1, 0, textSize());
       push();
       translate(m, textSize() * (j - rows / 2), 0);
-      text("Ciao", 0, 0);
+      text("你好", 0, 0);
       pop();
     }
     pop();
