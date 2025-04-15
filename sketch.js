@@ -1,52 +1,37 @@
-let columns = 10;
-let rows = 10;
-
-//
+let parti = 50;
+let parola = "你好hello";
 
 let font;
-
 function preload() {
-  font = loadFont("./assets/STXINGKA.TTF");
+  font = loadFont("./assets/悠然体.ttf");
 }
 
-//
+let h_parti;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight, "webgl");
-  angleMode(DEGREES);
-
+  createCanvas(windowWidth, windowHeight, WEBGL);
   textFont(font);
-  textSize(height / 10);
+  textAlign(CENTER);
+  h_parti = height / parti;
+  textSize(h_parti);
 }
-
-//
 
 function draw() {
-  background("YellowGreen");
+  background(0);
+
   orbitControl();
+  translate(0, -height / 2);
 
-  let angle = 360 / columns;
-  let diameter = textSize();
-
-  fill("black");
-
-  rotateY(-frameCount);
-  for (let i = 0; i < columns; i++) {
+  for (let i = 0; i < parti; i++) {
     push();
-    rotateY(angle * i);
-    translate(diameter, 0, 0);
-    for (let j = 0; j < rows; j++) {
-      const a = cos(frameCount * 5 + j * 20);
-      const m = map(a, -1, 1, 0, textSize());
-      push();
-      translate(m, textSize() * (j - rows / 2), 0);
-      text("你好", 0, 0);
-      pop();
-    }
+    //let z = map(cos(frameCount/10),-1,1,-200,200)
+    let x = map(cos(frameCount / 10 + i * 5), -1, 1, -100, 100);
+    let y = map(cos(frameCount / 10 + i * 5), -1, 1, -200, 100);
+    let z = map(cos(frameCount / 10 + i * 5), -1, 1, -300, 100);
+    translate(x, y, z);
+    let y_parte = i * h_parti;
+    let y_parola = y_parte + h_parti - textDescent();
+    text(parola, 0, y_parola);
     pop();
   }
-}
-
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
 }
