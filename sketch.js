@@ -21,8 +21,9 @@ function setup() {
   textSize(height / 10);
 
   cam = createCamera();
-  cam.setPosition(0, -900, 400);
-  cam.lookAt(0, -300, 0);
+  //cam.setPosition(0, -900, 400);
+  //cam.lookAt(0, -300, 0);
+  setupcam();
 }
 
 //
@@ -55,4 +56,9 @@ function draw() {
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+  setupcam();
+}
+function setupcam() {
+  cam.setPosition(0, -900, 400);
+  cam.lookAt(0, -300, 0);
 }
