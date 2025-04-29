@@ -1,5 +1,6 @@
 let columns = 10;
 let rows = 10;
+let parola = "@_@";
 
 //
 
@@ -10,6 +11,7 @@ function preload() {
 }
 
 //
+let cam;
 
 function setup() {
   createCanvas(windowWidth, windowHeight, "webgl");
@@ -17,6 +19,10 @@ function setup() {
 
   textFont(font);
   textSize(height / 10);
+
+  cam = createCamera();
+  cam.setPosition(0, -900, 400);
+  cam.lookAt(0, -300, 0);
 }
 
 //
@@ -40,7 +46,7 @@ function draw() {
       const m = map(a, -1, 1, 0, textSize());
       push();
       translate(m, textSize() * (j - rows / 2), 0);
-      text("你好", 0, 0);
+      text(parola, 0, 0);
       pop();
     }
     pop();
