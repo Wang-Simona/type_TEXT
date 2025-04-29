@@ -1,6 +1,6 @@
 let columns = 10;
 let rows = 10;
-let parola = "$_$";
+let parola = "妈的";
 
 //
 
